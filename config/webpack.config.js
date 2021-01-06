@@ -504,10 +504,11 @@ module.exports = function (webpackEnv) {
                 {
                   loader: 'css-loader',
                   options: {
-                    modules: true,
+                    modules: {
+                      localIdentName: '[name]__[local]__[hash:base64:5]',
+                    },
                     importLoaders: 2,
                     sourceMap: true,
-                    localIdentName: '[name]__[local]__[hash:base64:5]',
                   }
                 },
                 {
