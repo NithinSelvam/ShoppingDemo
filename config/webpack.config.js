@@ -26,6 +26,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const autoPrefixer = require('autoprefixer');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -60,8 +61,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
-const lessRegex = /\.less$/;
-const lessModuleRegex = /\.module\.less$/;
+const lessLoader = /\.less$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -495,6 +495,33 @@ module.exports = function (webpackEnv) {
                 },
               }),
             },
+            {
+              test: lessLoader,
+              use: [
+                {
+                  loader: 'style-loader'
+                },
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: {
+                      localIdentName: '[name]__[local]__[hash:base64:5]',
+                    },
+                    importLoaders: 2,
+                    sourceMap: true,
+                  }
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    plugins: () => [autoPrefixer]
+                  }
+                },
+                {
+                  loader: 'less-loader'
+                }
+              ]
+            },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
@@ -532,26 +559,6 @@ module.exports = function (webpackEnv) {
                 },
                 'sass-loader'
               ),
-            },
-
-            {
-              test: lessRegex,
-              use: [
-                {
-                  loader: "style-loader"
-                },
-                {
-                  loader: "css-loader",
-                  options: {
-                    sourceMap: true,
-                    modules: true,
-                  }
-                },
-                {
-                  loader: "less-loader"
-                }
-              ],
-              sideEffects: true,
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.

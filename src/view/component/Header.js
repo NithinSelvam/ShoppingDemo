@@ -5,7 +5,6 @@ import styles from './Header.less';
 
 const Header = () => {
 
-    console.log(styles)
     return ( 
         <header className={styles.header}>
             <Link to='/'>Store</Link>
