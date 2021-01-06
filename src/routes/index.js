@@ -4,12 +4,14 @@ import Header from '../view/component/Header'
 import LandingPage from '../view/page/LandingPage'
 
 export const Routes = () => {
-    <BrowserRouter>
-        <Switch>
-            <Route path={'/header'} component={Header} />
-            <Route component={LandingPage} />
-        </Switch>
-    </BrowserRouter>
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path={'/header'} component={Header} />
+                <Route component={LandingPage} />
+            </Switch>
+        </BrowserRouter>
+    )
 }
 
 export default Routes
