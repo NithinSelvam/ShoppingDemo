@@ -1,22 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import styles from '../Styles.less'
+import { CartIcon, MenuIcon } from './icons';
 
- const Navbar = ()=>{
-    return(
-            <nav className={styles.navWrapper}>
-                <div className={styles.container}>
-                    <Link to="/" className={styles.brandLogo}>Shopping</Link>
-                    
-                    <ul className={styles.right}>
-                        <li><Link to="/">Shop</Link></li>
-                        <li><Link to="/cart">My cart</Link></li>
-                        <li><Link to="/cart"><i className={styles.materialIcons}>shopping_cart</i></Link></li>
-                    </ul>
-                </div>
-            </nav>
-   
-        
+const Navbar = () => {
+    return (
+        <nav>
+            <div className={styles.container}>
+                <table>
+                    <tr>
+                        <th><span className={styles.menu}><Link to="/menu"><MenuIcon /></Link></span></th>
+                        <th><span className={styles.brandLogo}><Link to="/">Shopping</Link></span></th>
+                        <th><span className={styles.cart}><Link to="/cart"><CartIcon /><span id='lblCartCount' className={styles.cartCount}>0</span> <br />My  Cart</Link></span></th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+
+
     )
 }
 
