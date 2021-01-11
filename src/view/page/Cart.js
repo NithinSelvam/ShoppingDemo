@@ -19,9 +19,9 @@ export const Cart = (props) => {
     const handleSubtractQuantity = (id) => {
         props.subtractQuantity(id);
     }
-    let addedItems = props.items.length ?
+    let addedItems = props.addedItems.length ?
         (
-            props.items.map(item => {
+            props.addedItems.map(item => {
                 return (
 
                     <li className={styles.collectionItemAvatar} key={item.id}>
@@ -68,8 +68,8 @@ export const Cart = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.addedItems.addedItems,
-        //addedItems: state.addedItems
+        items: state.cartItems.items,
+        addedItems: state.cartItems.addedItems
     }
 }
 const mapDispatchToProps = (dispatch) => {
