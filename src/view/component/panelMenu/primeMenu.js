@@ -4,10 +4,15 @@ import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import './primeMenu.less';
 
-import React from 'react';
-import { PanelMenu } from 'primereact/panelmenu';
+import React, { useRef } from 'react';
+import { TieredMenu } from 'primereact/tieredmenu';
+import { Button } from 'primereact/button';
+import { MenuIcon } from '../icons';
+
+
 
 export const PrimeMenu = () => {
+    const menu = useRef(null);
     const items = [
         {
             label:'File',
@@ -128,7 +133,10 @@ export const PrimeMenu = () => {
     return (
         <div>
             <div className="card">
-                <PanelMenu model={items} style={{ width: '22rem' }}/>
+                <TieredMenu model={items} popup ref={menu} id="overlay_tmenu" />
+                <Button label="" style={{background: 'transparent', broder: '1px'}} onClick={(event) => menu.current.toggle(event)} aria-haspopup aria-controls="overlay_tmenu">
+                <MenuIcon/>
+                </Button>
             </div>
         </div>
     );

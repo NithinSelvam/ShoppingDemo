@@ -4,7 +4,7 @@ import { addToCart } from '../../model/actions/CartActions'
 import styles from '../Styles.less'
 import { Card } from 'primereact/card'
 import { Button } from 'primereact/button'
-import { PrimeMenu } from '../component/panelMenu/primeMenu'
+import { CarouselBanner } from '../component/CarouselBanner/CarouselBanner'
 
 export const Home = (props) => {
 
@@ -34,13 +34,15 @@ export const Home = (props) => {
     return (
 
         <div className={styles.bodyContainer}>
-            <PrimeMenu/>
+            <div className={styles.bodyContainercol}>
+            <CarouselBanner/>    
             <div>
                 <h3 className={styles.center}>Our items:</h3>
                 <div className={styles.box}>
                     {itemList}
                 </div>
             </div>
+        </div>
         </div>
     )
 }

@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import styles from '../Styles.less'
 import { CartIcon } from './icons';
 import { InputText } from "primereact/inputtext";
+import { PrimeMenu } from './panelMenu/primeMenu'
+
 
 const Navbar = ({ addedItems }) => {
 
@@ -11,6 +13,7 @@ const Navbar = ({ addedItems }) => {
         <nav>
             <div className={styles.container}>
                 <div className={styles.flexContainer}>
+                    <div><PrimeMenu/></div>
                     <div className={styles.brandLogo}><Link to="/">Shopping</Link></div>
                     <div className={styles.menu}>Men</div>
                     <div className={styles.menu}>Woman</div>
