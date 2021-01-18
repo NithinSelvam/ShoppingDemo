@@ -18,7 +18,7 @@ export const Cart = (props) => {
     //to substruct from the quantity
     const handleSubtractQuantity = (item) => <Button onClick={() => props.subtractQuantity(item.id)}>-</Button>
     //To get the title
-    const getTitle = (item) => <h3>{item.title}</h3>
+    const getTitle = (item) => <div><b>{item.title}</b></div>
     const descBodyTemplate = (item) => <div>{item.desc}</div>
     const priceBodyTemplate = (item) => <div>{item.price}</div>
     const getQuantity = (item) => <div>{item.quantity}</div>
@@ -33,7 +33,7 @@ export const Cart = (props) => {
                         <Column field="quantity" header="Quantity" body={getQuantity}></Column>
                         <Column header="Add Quantity" body={handleAddQuantity}></Column>
                         <Column header="Remove" body={handleRemove}></Column>
-                        <Column field="desc" header="Reviews" body={descBodyTemplate}></Column>
+                        <Column field="desc" header="Description" body={descBodyTemplate}></Column>
                         <Column field="price" header="Price" body={priceBodyTemplate}></Column>
                     </DataTable>
                 </div>

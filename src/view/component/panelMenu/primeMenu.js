@@ -135,7 +135,7 @@ export const PrimeMenu = () => {
             <div className="card">
                 <TieredMenu model={items} popup ref={menu} id="overlay_tmenu" />
                 <Button label="" style={{background: 'transparent', broder: '1px'}} onClick={(event) => menu.current.toggle(event)} aria-haspopup aria-controls="overlay_tmenu">
-                <MenuIcon/>
+                <MenuIcon width={'24px'} height={'24px'} />
                 </Button>
             </div>
         </div>
