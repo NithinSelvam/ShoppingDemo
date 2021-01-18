@@ -3,11 +3,8 @@ import { ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, ADD_SHIPPING } fr
 
 
 const cartReducer = (cartItems = {}, action) => {
-    console.log("cartReducer", cartItems)
-    console.log("cartReducer 2", action)
     //INSIDE HOME COMPONENT
     if (action.type === ADD_TO_CART) {
-        console.log("------------------")
         let addedItem = cartItems.items.find(item => item.id === action.id)
         //check if the action id exists in the addedItems
         let existed_item = cartItems.addedItems.find(item => action.id === item.id)

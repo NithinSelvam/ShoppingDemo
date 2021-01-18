@@ -42,8 +42,8 @@ class Recipe extends Component{
 
 const mapStateToProps = (state)=>{
     return{
-        addedItems: state.addedItems,
-        total: state.total
+        addedItems: state.cartItems.addedItems,
+        total: state.cartItems.total
     }
 }
 

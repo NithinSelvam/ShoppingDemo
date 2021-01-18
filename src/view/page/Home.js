@@ -11,16 +11,16 @@ export const Home = (props) => {
     const handleClick = (id) => {
         props.addToCart(id);
     }
-    const footer = id => {
+    const footer = id => (
         <span>
-            <Button label="Add to cart" icon="pi pi-times" className="p-button-secondary p-ml-2" onClick={() => handleClick(id)} />
+            <Button label="Add to cart" className="p-button-secondary p-ml-2" onClick={() => handleClick(id)} />
         </span>
-    }
+    )
 
     let itemList = props.items.map(item => {
         return (
             <div className={styles.card} key={item.id}>
-                <Card title={<img src={item.img} alt={item.title} />} subTitle={item.title} style={{ width: '19rem' }} className="ui-card-shadow" footer={footer(item.id)}>
+                <Card title={<img src={item.img} alt={item.title} />} subTitle={item.title} style={{ maxWidth: '17rem' }} className="ui-card-shadow" footer={footer(item.id)}>
                     <span className={styles.cardTitle}></span>
                     <div className={styles.cardontent}>
                         <div>{item.desc}</div>
